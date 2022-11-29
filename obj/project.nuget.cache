@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w4UlQCp0oeK4gQ50+86JBUCa+VK3k9qNeGooh6R9Og8u+3JxnVv9+mSxdydIZNRhB5IT75CZqZ/2MGdDYrIkww==",
+  "dgSpecHash": "+8kifMIfGmG++0bfeVDx9trVBiNgXiygc/F0pZbB0RziFMAhaRWA2ZfSgKXJDizEzxUJuym5ajywr0wVZTTruQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\dotnet-maui-workshop\\Part 6 - AppThemes\\HotelProject\\HotelProject.csproj",
+  "projectFilePath": "D:\\School\\Fall 2022\\HotelProject\\HotelProject\\HotelProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\loren\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\googlegson\\2.9.1\\googlegson.2.9.1.nupkg.sha512",
@@ -12,7 +12,6 @@
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.logging.debug\\7.0.0\\microsoft.extensions.logging.debug.7.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.graphics.win2d\\1.0.4\\microsoft.graphics.win2d.1.0.4.nupkg.sha512",

@@ -1,35 +1,41 @@
 is_global = true
 build_property.TargetFramework = net7.0-windows10.0.19041
-build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.TargetPlatformMinVersion = 10.0.19041.0
 build_property.UsingMicrosoftNETSdkWeb = 
-build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RoomFinder
-build_property.ProjectDir = D:\Programming\dotnet-maui-workshop\Part 6 - AppThemes\HotelProject\
+build_property.ProjectDir = D:\School\Fall 2022\HotelProject\HotelProject\
 
-[D:/Programming/dotnet-maui-workshop/Part 6 - AppThemes/HotelProject/App.xaml]
+[D:/School/Fall 2022/HotelProject/HotelProject/HotelProject/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.App.xaml
-build_metadata.AdditionalFiles.TargetPath = App.xaml
-build_metadata.AdditionalFiles.RelativePath = App.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.HotelProject.App.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelProject\App.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelProject\App.xaml
 
-[D:/Programming/dotnet-maui-workshop/Part 6 - AppThemes/HotelProject/AppShell.xaml]
+[D:/School/Fall 2022/HotelProject/HotelProject/HotelProject/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.AppShell.xaml
-build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
-build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.HotelProject.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelProject\AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelProject\AppShell.xaml
 
-[D:/Programming/dotnet-maui-workshop/Part 6 - AppThemes/HotelProject/View/DetailsPage.xaml]
+[D:/School/Fall 2022/HotelProject/HotelProject/HotelProject/Platforms/Windows/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.View.DetailsPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\DetailsPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\DetailsPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.HotelProject.Platforms.Windows.App.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelProject\Platforms\Windows\App.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelProject\Platforms\Windows\App.xaml
 
-[D:/Programming/dotnet-maui-workshop/Part 6 - AppThemes/HotelProject/View/MainPage.xaml]
+[D:/School/Fall 2022/HotelProject/HotelProject/HotelProject/View/DetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.View.MainPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\MainPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\MainPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.HotelProject.View.DetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelProject\View\DetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelProject\View\DetailsPage.xaml
+
+[D:/School/Fall 2022/HotelProject/HotelProject/HotelProject/View/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RoomFinder.HotelProject.View.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelProject\View\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelProject\View\MainPage.xaml
