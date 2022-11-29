@@ -1,0 +1,1 @@
+D:\Programming\dotnet-maui-workshop\Part 6 - AppThemes\HotelProject\HotelProject.csproj;x64

@@ -1,0 +1,30 @@
+﻿[
+  {
+    "Id": "1",
+    "Name": "Deluxe Two Queen Room",
+    "Type": "2 Queen",
+    "RoomDescription": "530 sq. ft, 2 Queen Beds, Max Guest 4",
+    "Image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046984293219581984/aria-hotel-deluxe-two-queen-mountain-view.jpg.image.2480.1088.high.jpg",
+    "RoomNumber": [
+      300,
+      400,
+      500
+    ],
+    "Price": 170.00,
+    "IsActive": true
+  },
+  {
+    "Id": "301",
+    "Name": "Deluxe King Room",
+    "Type": "1 King",
+    "RoomDescription": "530 sq. ft, 1 King Bed, Max Guest 3",
+    "Image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046983800602763324/image.png",
+    "RoomNumber": [
+      301,
+      401,
+      501
+    ],
+    "Price": 195.00,
+    "IsActive": true
+  }
+]
