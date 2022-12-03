@@ -5,4 +5,12 @@
     <ActiveDebugFramework>net7.0-windows10.0.19041</ActiveDebugFramework>
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
   </PropertyGroup>
+  <ItemGroup>
+    <MauiXaml Update="View\CustomerPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="View\UnavailabeRoomPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
 </Project>

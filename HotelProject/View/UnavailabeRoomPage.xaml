@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HotelProject.View.AvailableRoomPage"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="HotelProject.View.UnavailableRoomPage"
              xmlns:model="clr-namespace:HotelProject.Model"
-             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"             
-             Title="Available Rooms"
-             x:DataType="viewmodel:RoomsViewModel">
-    
+             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel" 
+             Title="Unavailable Rooms"
+             x:DataType="viewmodel:UnavailableRoomsViewModel">
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
@@ -14,7 +13,7 @@
         RowSpacing="0">
         <RefreshView
             Grid.ColumnSpan="2"
-            Command="{Binding GetRoomsCommand}"
+            Command="{Binding GetUnRoomsCommand}"
             IsRefreshing="{Binding IsRefreshing}">
             <ContentView>
                 <CollectionView
@@ -26,7 +25,7 @@
                                 <Frame HeightRequest="125" Style="{StaticResource CardView}">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer 
-                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RoomsViewModel}}, Path=GoToDetailsCommand}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UnavailableRoomsViewModel}}, Path=GoToDetailsCommand}"
                                             CommandParameter="{Binding .}"/>
                                     </Frame.GestureRecognizers>
                                     <Grid Padding="0" ColumnDefinitions="125,*">

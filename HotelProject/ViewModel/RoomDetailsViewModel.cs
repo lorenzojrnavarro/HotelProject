@@ -11,16 +11,4 @@ public partial class RoomDetailsViewModel : BaseViewModel
 
     [ObservableProperty]
     Room room;
-
-    //public string RoomList
-    //{
-    //    get 
-    //    {
-    //        foreach (int i in room.RoomNumber)
-    //        {
-    //            _displayRoomNumbers += i.ToString() + " ";
-    //        }
-    //        return _displayRoomNumbers;
-    //    }
-    //}   
 }
