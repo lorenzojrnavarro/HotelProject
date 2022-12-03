@@ -5,13 +5,13 @@
              xmlns:model="clr-namespace:HotelProject.Model"
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel" 
              Title="UnavailableRoomPage"
-             x:DataType="viewmodel:UnavailableRoomViewModel">
+             x:DataType="viewmodel:UnavailableRoomsViewModel">
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-        <!--<RefreshView
+        <RefreshView
             Grid.ColumnSpan="2"
             Command="{Binding GetUnRoomsCommand}"
             IsRefreshing="{Binding IsRefreshing}">
@@ -25,7 +25,7 @@
                                 <Frame HeightRequest="125" Style="{StaticResource CardView}">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer 
-                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UnavailableRoomViewModel}}, Path=GoToDetailsCommand}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UnavailableRoomsViewModel}}, Path=GoToDetailsCommand}"
                                             CommandParameter="{Binding .}"/>
                                     </Frame.GestureRecognizers>
                                     <Grid Padding="0" ColumnDefinitions="125,*">
@@ -51,7 +51,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </ContentView>
-        </RefreshView>-->
+        </RefreshView>
 
         <ActivityIndicator
             Grid.RowSpan="2"

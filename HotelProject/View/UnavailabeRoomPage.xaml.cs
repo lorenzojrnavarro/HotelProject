@@ -2,7 +2,7 @@ namespace HotelProject.View;
 
 public partial class UnavailableRoomPage : ContentPage
 {
-	public UnavailableRoomPage(RoomsViewModel viewModel)
+	public UnavailableRoomPage(UnavailableRoomsViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;

@@ -2,12 +2,12 @@
 
 namespace HotelProject.ViewModel;
 
-public partial class UnavailableRoomViewModel : BaseViewModel
+public partial class UnavailableRoomsViewModel : BaseViewModel
 {
     public ObservableCollection<Room> Rooms { get; } = new();
     RoomService roomService;
     IConnectivity connectivity;
-    public UnavailableRoomViewModel(RoomService roomService, IConnectivity connectivity)
+    public UnavailableRoomsViewModel(RoomService roomService, IConnectivity connectivity)
     {
         Title = "Room Finder";
         this.roomService = roomService;
