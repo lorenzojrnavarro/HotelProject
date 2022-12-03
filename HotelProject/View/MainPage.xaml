@@ -9,8 +9,6 @@
     ios:Page.UseSafeArea="True"
     Title="Rooms"
     x:DataType="viewmodel:RoomsViewModel">
-
-    <RefreshView></RefreshView>
     <!--<Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
