@@ -2,24 +2,25 @@
 
 namespace HotelProject.ViewModel;
 
-public partial class RoomsViewModel : BaseViewModel
+public partial class UnavailableRoomViewModel : BaseViewModel
 {
     public ObservableCollection<Room> Rooms { get; } = new();
     RoomService roomService;
     IConnectivity connectivity;
-    public RoomsViewModel(RoomService roomService, IConnectivity connectivity)
+    public UnavailableRoomViewModel(RoomService roomService, IConnectivity connectivity)
     {
         Title = "Room Finder";
         this.roomService = roomService;
         this.connectivity = connectivity;
-        Task.Run(async () => await GetRoomsAsync());
+        Task.Run(async () => await GetUnRoomsAsync());
     }
 
     [ObservableProperty]
     bool isRefreshing;
 
     [RelayCommand]
-    async Task GetRoomsAsync()
+ 
+    async Task GetUnRoomsAsync()
     {
         if (IsBusy)
             return;
@@ -34,12 +35,12 @@ public partial class RoomsViewModel : BaseViewModel
             }
 
             IsBusy = true;
-            var rooms = await roomService.GetRooms();
+            var rooms = await roomService.GetUnRooms();
 
-            if(Rooms.Count != 0)
+            if (Rooms.Count != 0)
                 Rooms.Clear();
-                
-            foreach(var room in rooms)
+
+            foreach (var room in rooms)
                 Rooms.Add(room);
 
         }
@@ -55,7 +56,6 @@ public partial class RoomsViewModel : BaseViewModel
         }
 
     }
- 
 
     [RelayCommand]
     async Task GoToDetails(Room room)

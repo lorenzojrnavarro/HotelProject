@@ -11,6 +11,7 @@ public class RoomService
     }
 
     List<Room> roomList;
+    List<Room> UnroomList;
     public async Task<List<Room>> GetRooms()
     {
         if (roomList?.Count > 0)
@@ -30,5 +31,25 @@ public class RoomService
         roomList = JsonSerializer.Deserialize<List<Room>>(contents);
 
         return roomList;
+    }
+    public async Task<List<Room>> GetUnRooms()
+    {
+        if (UnroomList?.Count > 0)
+            return UnroomList;
+
+        // Online
+        /*var response = await httpClient.GetAsync("https://www.montemagno.com/rooms.json");
+        if (response.IsSuccessStatusCode)
+        {
+            roomList = await response.Content.ReadFromJsonAsync<List<Room>>();
+        }*/
+
+        // Offline
+        using var stream = await FileSystem.OpenAppPackageFileAsync("Uroomdata.json");
+        using var reader = new StreamReader(stream);
+        var contents = await reader.ReadToEndAsync();
+        UnroomList = JsonSerializer.Deserialize<List<Room>>(contents);
+
+        return UnroomList;
     }
 }
