@@ -16,20 +16,26 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
-//#if DEBUG
-//		builder.Logging.AddDebug();
-//#endif
+#if DEBUG
+		builder.Logging.ClearProviders();
+#endif
 
     	builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 		builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
 		builder.Services.AddSingleton<IMap>(Map.Default);
 		
 		builder.Services.AddSingleton<RoomService>();
-		builder.Services.AddSingleton<RoomsViewModel>();
+        builder.Services.AddSingleton<CustomerService>();
+
+        builder.Services.AddSingleton<RoomsViewModel>();
         builder.Services.AddSingleton<UnavailableRoomsViewModel>();
+        builder.Services.AddSingleton<CustomerViewModel>();
+
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<AvailableRoomPage>();
         builder.Services.AddSingleton<UnavailableRoomPage>();
+        builder.Services.AddSingleton<CustomerPage>();
+
 
         builder.Services.AddTransient<RoomDetailsViewModel>();
 		builder.Services.AddTransient<DetailsPage>();

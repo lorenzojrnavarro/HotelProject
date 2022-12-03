@@ -4,7 +4,7 @@
              x:Class="HotelProject.View.UnavailableRoomPage"
              xmlns:model="clr-namespace:HotelProject.Model"
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel" 
-             Title="UnavailableRoomPage"
+             Title="Unavailable Rooms"
              x:DataType="viewmodel:UnavailableRoomsViewModel">
     <Grid
         ColumnDefinitions="*,*"

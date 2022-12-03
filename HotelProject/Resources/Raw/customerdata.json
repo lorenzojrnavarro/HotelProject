@@ -1,0 +1,12 @@
+﻿[
+  {
+    "Id": "1",
+    "Name": "Robert De Niro",
+    "Gender": "Male",
+    "Age": 67,
+    "AllowedRoom": 401,
+    "IdentityProof": "https://cdn.discordapp.com/attachments/1046983780973432852/1048494660361916507/baby.jpg",
+    "Phone": "123-456-7890",
+    "IsActive": true
+  }
+]

@@ -28,8 +28,8 @@
     <ShellContent
         Shell.NavBarIsVisible="true"
         Title="Customers"
-        ContentTemplate="{DataTemplate view:MainPage}"
-        Route="MainPage"
+        ContentTemplate="{DataTemplate view:CustomerPage}"
+        Route="CustomerPage"
         />
     <ShellContent
         Shell.NavBarIsVisible="true"
