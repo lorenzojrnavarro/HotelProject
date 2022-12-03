@@ -1,4 +1,6 @@
-﻿namespace HotelProject;
+﻿using HotelProject.View;
+
+namespace HotelProject;
 
 public partial class App : Application
 {

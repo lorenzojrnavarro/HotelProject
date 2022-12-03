@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelProject.AppShell"
              xmlns:view="clr-namespace:HotelProject.View"
-             FlyoutBehavior="Disabled">
+             FlyoutBehavior="Locked">
 
 
 
@@ -25,11 +25,22 @@
     </Shell.Resources>
 
 
-
     <ShellContent
         Shell.NavBarIsVisible="true"
-        Title="Rooms"
+        Title="Customers"
         ContentTemplate="{DataTemplate view:MainPage}"
-        Route="MainPage" />
-
+        Route="MainPage"
+        />
+    <ShellContent
+        Shell.NavBarIsVisible="true"
+        Title="Available Rooms"
+        ContentTemplate="{DataTemplate view:AvailableRoomPage}"
+        Route="AvailableRoomPage"
+        />
+    <ShellContent
+        Shell.NavBarIsVisible="true"
+        Title="Unavailable Rooms"
+        ContentTemplate="{DataTemplate view:MainPage}"
+        Route="MainPage"
+        />
 </Shell>

@@ -22,23 +22,5 @@ public partial class RoomDetailsViewModel : BaseViewModel
     //        }
     //        return _displayRoomNumbers;
     //    }
-    //}
-
-    //[RelayCommand]
-    //async Task OpenMap()
-    //{
-    //    try
-    //    {
-    //        await map.OpenAsync(Room.Latitude, Room.Longitude, new MapLaunchOptions
-    //        {
-    //            Name = Room.Name,
-    //            NavigationMode = NavigationMode.None
-    //        });
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Unable to launch maps: {ex.Message}");
-    //        await Shell.Current.DisplayAlert("Error, no Maps app!", ex.Message, "OK");
-    //    }
-    //}
+    //}   
 }

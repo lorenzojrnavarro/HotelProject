@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="HotelProject.View.MainPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:HotelProject.Model"
-    xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"
-    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-    ios:Page.UseSafeArea="True"
-    Title="Rooms"
-    x:DataType="viewmodel:RoomsViewModel">
-
-    <RefreshView></RefreshView>
-    <!--<Grid
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelProject.View.AvailableRoomPage"             
+             xmlns:model="clr-namespace:HotelProject.Model"
+             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"             
+             Title="AvailableRoomPage"
+             x:DataType="viewmodel:RoomsViewModel">
+    
+    <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
@@ -66,5 +62,5 @@
             IsVisible="{Binding IsBusy}"
             Color="{StaticResource Primary}"
             VerticalOptions="Center" />
-    </Grid>-->
+    </Grid>
 </ContentPage>

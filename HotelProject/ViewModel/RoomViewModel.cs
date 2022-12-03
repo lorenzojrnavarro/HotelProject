@@ -12,6 +12,7 @@ public partial class RoomsViewModel : BaseViewModel
         Title = "Room Finder";
         this.roomService = roomService;
         this.connectivity = connectivity;
+        Task.Run(async () => await GetRoomsAsync());
     }
 
     [ObservableProperty]

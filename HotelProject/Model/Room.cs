@@ -7,7 +7,7 @@ public class Room
     public string Type { get; set; }
     public string RoomDescription { get; set; }
     public string Image { get; set; }
-    public List<int> RoomNumber { get; set; }
+    public int RoomNumber { get; set; }
     public double Price { get; set; }
     public Boolean IsActive { get; set; }
 }
