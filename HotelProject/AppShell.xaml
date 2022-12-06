@@ -43,4 +43,10 @@
         ContentTemplate="{DataTemplate view:UnavailableRoomPage}"
         Route="UnavailableRoomPage"
         />
+    <ShellContent
+        Shell.NavBarIsVisible="true"
+        Title="Login"
+        ContentTemplate="{DataTemplate view:LoginPage}"
+        Route="LoginPage"
+        />
 </Shell>
