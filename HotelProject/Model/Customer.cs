@@ -2,18 +2,26 @@
 
 public class Customer
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string Gender { get; set; }   
-    public int Age { get; set; }
-        
-    public int AllowedRoom { get; set; }        
+    public string id { get; set; }
+    public string name { get; set; }
+    public string gender { get; set; }
+    public int age { get; set; }
 
-    public string IdentityProof { get; set; }
-    public string Phone { get; set; }   
+    public int allowedRoom { get; set; }
 
-    public Boolean IsActive { get; set; }
+    public string identityProof { get; set; }
+    public string phone { get; set; }
 
+    public PaymentDetails paymentDetails {get; set; }
+
+    public Boolean isActive { get; set; }
+
+}
+
+public class PaymentDetails
+{
+    public string PaymentMethod { get; set; }
+    public string Amount { get; set; }
 }
 
 

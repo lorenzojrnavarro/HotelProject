@@ -1,4 +1,6 @@
-﻿namespace HotelProject.ViewModel;
+﻿using HotelProject.View;
+
+namespace HotelProject.ViewModel;
 
 [QueryProperty(nameof(Room), "Room")]
 public partial class RoomDetailsViewModel : BaseViewModel
@@ -11,4 +13,14 @@ public partial class RoomDetailsViewModel : BaseViewModel
 
     [ObservableProperty]
     Room room;
+
+    [RelayCommand]
+    async Task OpenReservationPage()
+    {
+        await Shell.Current.GoToAsync("BookingPage", true, new Dictionary<string, object>
+        {
+            {"Room", room }
+        });
+    }
+
 }
