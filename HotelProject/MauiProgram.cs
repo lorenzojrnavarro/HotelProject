@@ -40,6 +40,9 @@ public static class MauiProgram
         builder.Services.AddTransient<RoomDetailsViewModel>();
 		builder.Services.AddTransient<DetailsPage>();
 
+		builder.Services.AddTransient<BookingPage>();
+		builder.Services.AddTransient<BookingPageViewModel>();
+
 		return builder.Build();
 	}
 }
