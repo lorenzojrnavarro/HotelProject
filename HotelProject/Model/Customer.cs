@@ -12,7 +12,7 @@ public class Customer
     public string identityProof { get; set; }
     public string phone { get; set; }
 
-    public PaymentDetails paymentDetails {get; set; }
+    public PaymentDetails paymentDetails { get; set; }
 
     public Boolean isActive { get; set; }
 
@@ -20,8 +20,8 @@ public class Customer
 
 public class PaymentDetails
 {
-    public string PaymentMethod { get; set; }
-    public string Amount { get; set; }
+    public string paymentMethod { get; set; }
+    public string amount { get; set; }
 }
 
 

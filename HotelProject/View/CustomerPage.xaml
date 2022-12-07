@@ -43,7 +43,7 @@
                                             VerticalOptions="Center"
                                             Padding="10">
                                             <Label Style="{StaticResource LargeLabel}" Text="" />
-                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding paymentDetails.PaymentMethod, StringFormat='Payment Method: {0}'}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding paymentDetails.paymentMethod, StringFormat='Payment Method: {0}'}" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding allowedRoom, StringFormat='Room Number: {0}'}"/>
                                         </VerticalStackLayout>
                                     </Grid>
