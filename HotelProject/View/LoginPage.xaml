@@ -13,8 +13,8 @@
 
         <Image Source="hotel.png" HeightRequest="150" WidthRequest="150" />
         <VerticalStackLayout Spacing="5">
-            <Label Text="Welcome!" FontSize="28" TextColor="DarkRed" HorizontalTextAlignment="Center" />
-            <Label Text="Login to your account" FontSize="20" TextColor="DarkRed" HorizontalTextAlignment="Center"/>
+            <Label Text="Welcome!" FontSize="28" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" />
+            <Label Text="Login to your account" FontSize="20" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
         </VerticalStackLayout>
 
         <!--Username Input-->
@@ -37,14 +37,7 @@
             </Frame>
         </StackLayout>
 
-        <Button Text="Sign In" WidthRequest="100" CornerRadius="20" HorizontalOptions="CenterAndExpand" BackgroundColor="DarkRed"/>
-
-        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-            <Label Text="Don't have an account?" TextColor="Grey"/>
-            <!--Need to make this a clickable button-->
-            <Label Text="Sign up here" TextColor="DarkRed"/>
-
-        </StackLayout>
+        <Button Text="Sign In" WidthRequest="100" CornerRadius="20" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}"/>
 
     </VerticalStackLayout>
 </ContentPage>
