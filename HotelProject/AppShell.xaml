@@ -45,7 +45,7 @@
         />
     <ShellContent
         Shell.NavBarIsVisible="true"
-        Title="Login"
+        Title="Employee Login"
         ContentTemplate="{DataTemplate view:LoginPage}"
         Route="LoginPage"
         />
