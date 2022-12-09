@@ -1,4 +1,10 @@
-﻿using HotelProject.View;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Maui.Markup;
+using HotelProject.Services;
+using HotelProject.View;
+using Microsoft.Maui.Networking;
+using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
 
 namespace HotelProject.ViewModel;
 
@@ -6,13 +12,21 @@ namespace HotelProject.ViewModel;
 public partial class RoomDetailsViewModel : BaseViewModel
 {
     IMap map;
-    public RoomDetailsViewModel(IMap map)
+    IConnectivity connectivity;
+    RoomService roomService;
+
+    [ObservableProperty]
+    Boolean isUnavailable;
+    public RoomDetailsViewModel(IMap map, RoomService roomService, IConnectivity connectivity)
     {
         this.map = map;
+        this.roomService = roomService;
+        this.connectivity = connectivity;
     }
 
     [ObservableProperty]
     Room room;
+    
 
     [RelayCommand]
     async Task OpenReservationPage()
@@ -28,7 +42,8 @@ public partial class RoomDetailsViewModel : BaseViewModel
     {
         room.IsActive = true;
         await roomService.SetAvailability(room);
-        WeakReferenceMessenger.Default.Send(new RemoveCustomerByRoomNumber(room));
+        
+        WeakReferenceMessenger.Default.Send(new RemoveCustomerByRoomNumber(room));        
         WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
         WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
         await Shell.Current.GoToAsync("..");

@@ -3,6 +3,9 @@ using System.ComponentModel;
 using HotelProject.Model;
 using System.Windows.Input;
 using Microsoft.Maui.Networking;
+using HotelProject.View;
+using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
 
 namespace HotelProject.ViewModel;
 
@@ -62,6 +65,7 @@ public partial class BookingPageViewModel : BaseViewModel
             WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
+            
             await Shell.Current.GoToAsync("../..");            
         }
         catch (Exception ex)
