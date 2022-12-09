@@ -11,6 +11,6 @@ public partial class BookingPage : ContentPage
     void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
 		double value = e.NewValue;
-        Nights.Text = e.NewValue.ToString();
+        Nights.Text = "Staying " + e.NewValue.ToString() + " Night(s)";
     }
 }

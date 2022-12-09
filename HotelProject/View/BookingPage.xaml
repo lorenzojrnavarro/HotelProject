@@ -9,19 +9,19 @@
     <VerticalStackLayout>
         <Entry x:Name="Name"
                Placeholder="Enter Name"
-               Text="{Binding Customer.name}"/>
+               Text="{Binding Customer.Name}"/>
         <Entry x:Name="Gender"
                Placeholder="Enter Gender"
-               Text="{Binding Customer.gender}"/>
+               Text="{Binding Customer.Gender}"/>
         <Entry x:Name="Age"
                Placeholder="Enter Age"
-               Text="{Binding Customer.age}"/>
+               Text="{Binding Customer.Age}"/>
         <Entry x:Name="Phone"
                Placeholder="Enter Phone Number"
-               Text="{Binding Customer.phone}"/>
-        <Grid Padding="10" ColumnDefinitions="30, *">
-            <Label x:Name="Nights"
-                    Text="1"
+               Text="{Binding Customer.Phone}"/>
+        <Grid Padding="10" ColumnDefinitions="150, *">
+            <Label  x:Name="Nights"
+                    Text="Staying 1 Night(s) "
                     VerticalOptions="Center"/>
             <Stepper x:Name="NightsStepper"
                         Minimum="1"
