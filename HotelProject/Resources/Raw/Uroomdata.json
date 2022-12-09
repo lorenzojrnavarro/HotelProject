@@ -1,22 +1,22 @@
 ﻿[
   {
-    "Id": "201",
-    "Name": "Deluxe King Room",
-    "Type": "1 King",
-    "RoomDescription": "530 sq. ft, 1 King Bed, Max Guest 3",
-    "Image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046983800602763324/image.png",
-    "RoomNumber": 201,
-    "Price": 195.00,
-    "IsActive": false
+    "id": "201",
+    "name": "Deluxe King Room",
+    "type": "1 King",
+    "roomDescription": "530 sq. ft, 1 King Bed, Max Guest 3",
+    "image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046983800602763324/image.png",
+    "roomNumber": 201,
+    "price": 195.00,
+    "isActive": false
   },
   {
-    "Id": "401",
-    "Name": "Deluxe King Room",
-    "Type": "1 King",
-    "RoomDescription": "530 sq. ft, 1 King Bed, Max Guest 3",
-    "Image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046983800602763324/image.png",
-    "RoomNumber": 401,
-    "Price": 195.00,
-    "IsActive": false
+    "id": "401",
+    "name": "Deluxe King Room",
+    "type": "1 King",
+    "roomDescription": "530 sq. ft, 1 King Bed, Max Guest 3",
+    "image": "https://cdn.discordapp.com/attachments/1046983780973432852/1046983800602763324/image.png",
+    "roomNumber": 401,
+    "price": 195.00,
+    "isActive": false
   }
 ]

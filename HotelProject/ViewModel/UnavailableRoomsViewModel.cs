@@ -1,26 +1,39 @@
-﻿using HotelProject.Services;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
+using HotelProject.Services;
 
 namespace HotelProject.ViewModel;
 
-public partial class UnavailableRoomsViewModel : BaseViewModel
+public partial class UnavailableRoomsViewModel : BaseViewModel, IRecipient<RefreshUnavailableRooms>
 {
-    public ObservableCollection<Room> Rooms { get; } = new();
+    public ObservableCollection<Room> Rooms { get; set; } = new();
     RoomService roomService;
     IConnectivity connectivity;
+
+    
     public UnavailableRoomsViewModel(RoomService roomService, IConnectivity connectivity)
     {
         Title = "Room Finder";
         this.roomService = roomService;
         this.connectivity = connectivity;
-        Task.Run(async () => await GetUnRoomsAsync());
+        Task.Run(async () => await GetUnavailableRoomsAsync());
+
+        WeakReferenceMessenger.Default.Register<RefreshUnavailableRooms>(this);
     }
+    
 
     [ObservableProperty]
     bool isRefreshing;
 
+    void Refresh()
+    {
+        Task.Run(async () => await GetUnavailableRoomsAsync());
+    }
+
     [RelayCommand]
  
-    async Task GetUnRoomsAsync()
+    async Task GetUnavailableRoomsAsync()
     {
         if (IsBusy)
             return;
@@ -35,13 +48,16 @@ public partial class UnavailableRoomsViewModel : BaseViewModel
             }
 
             IsBusy = true;
-            var rooms = await roomService.GetUnRooms();
+            var rooms = await roomService.GetRooms();
 
             if (Rooms.Count != 0)
                 Rooms.Clear();
 
             foreach (var room in rooms)
-                Rooms.Add(room);
+            {
+                if (!room.IsActive)
+                    Rooms.Add(room);
+            }
 
         }
         catch (Exception ex)
@@ -66,6 +82,21 @@ public partial class UnavailableRoomsViewModel : BaseViewModel
         await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
         {
             {"Room", room }
+        });
+    }
+
+    public void Receive(RefreshUnavailableRooms message)
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            if (!message.Value.IsActive)
+            {
+                Rooms.Add(message.Value);
+            }
+            if (message.Value.IsActive)
+            {
+                Rooms.Remove(Rooms.Where(i => i.Id == message.Value.Id).Single());
+            }
         });
     }
 }

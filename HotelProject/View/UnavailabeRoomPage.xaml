@@ -13,7 +13,7 @@
         RowSpacing="0">
         <RefreshView
             Grid.ColumnSpan="2"
-            Command="{Binding GetUnRoomsCommand}"
+            Command="{Binding GetUnavailableRoomsCommand}"
             IsRefreshing="{Binding IsRefreshing}">
             <ContentView>
                 <CollectionView
