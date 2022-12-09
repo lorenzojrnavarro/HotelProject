@@ -42,6 +42,8 @@ public partial class RoomDetailsViewModel : BaseViewModel
     {
         room.IsActive = true;
         await roomService.SetAvailability(room);
+        
+        WeakReferenceMessenger.Default.Send(new RemoveCustomerByRoomNumber(room));        
         WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
         WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
         await Shell.Current.GoToAsync("..");

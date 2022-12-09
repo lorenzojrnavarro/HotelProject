@@ -10,7 +10,7 @@ using HotelProject.Messages;
 namespace HotelProject.ViewModel;
 
 [QueryProperty(nameof(Room), "Room")]
-public partial class BookingPageViewModel : BaseViewModel, INotifyPropertyChanged
+public partial class BookingPageViewModel : BaseViewModel
 {
     RoomService roomService;
     CustomerService customerService;
@@ -50,12 +50,12 @@ public partial class BookingPageViewModel : BaseViewModel, INotifyPropertyChange
 
             IsBusy = true;
 
-            customer.allowedRoom = room.RoomNumber;
-            customer.identityProof = "proof";
-            customer.paymentDetails = new PaymentDetails();
-            customer.paymentDetails.paymentMethod = "Visa";
-            customer.paymentDetails.amount = (room.Price*nightsStayed).ToString(); 
-            customer.isActive= true;
+            customer.AllowedRoom = room.RoomNumber;
+            customer.IdentityProof = "proof";
+            customer.PaymentDetails = new PaymentDetails();
+            customer.PaymentDetails.PaymentMethod = "Visa";
+            customer.PaymentDetails.Amount = (room.Price*nightsStayed).ToString(); 
+            customer.IsActive= true;
 
             await customerService.CreateReservation(customer);
 
@@ -64,6 +64,8 @@ public partial class BookingPageViewModel : BaseViewModel, INotifyPropertyChange
 
             WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
+            WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
+            
             await Shell.Current.GoToAsync("../..");            
         }
         catch (Exception ex)
@@ -76,9 +78,6 @@ public partial class BookingPageViewModel : BaseViewModel, INotifyPropertyChange
             IsBusy = false;
         }        
     }
-
-    public ICommand CustomerReservation { get; private set; }
-    
 
 
     //[ObservableProperty]

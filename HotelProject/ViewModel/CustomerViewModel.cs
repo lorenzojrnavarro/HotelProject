@@ -1,18 +1,32 @@
-﻿using HotelProject.Services;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
+using HotelProject.Services;
 
 namespace HotelProject.ViewModel;
 
-public partial class CustomerViewModel : BaseViewModel
+public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustomers>
 {
     public ObservableCollection<Customer> Customers { get; } = new();
     CustomerService customerService;
+    RoomService roomService;
     IConnectivity connectivity;
-    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity)
+    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity, RoomService roomService)
     {
         Title = "Customer Finder";
         this.customerService = customerService;
         this.connectivity = connectivity;
         Task.Run(async () => await GetCustomersAsync());
+
+        WeakReferenceMessenger.Default.Register<RemoveCustomerByRoomNumber>(this, (sender, message) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                RemoveCustomer(message.Value);
+            });
+        });
+
+        WeakReferenceMessenger.Default.Register<RefreshCustomers>(this);
+        
     }
 
     [ObservableProperty]
@@ -55,6 +69,33 @@ public partial class CustomerViewModel : BaseViewModel
             IsRefreshing = false;
         }
 
+    }
+
+    public async void RemoveCustomer(Room message)
+    {
+        Customer customer = Customers.Where(customer => customer.AllowedRoom == message.RoomNumber).Single();
+        if (customer != null)
+        {
+            customer.IsActive= false;
+            WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
+            await customerService.DeleteCustomer(customer.Id);
+        }
+    }
+
+    public void Receive(RefreshCustomers message)
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            if (message.Value.IsActive)
+            {
+                Customers.Add(message.Value);
+            }
+            if (!message.Value.IsActive)
+            {
+                Customer customer = Customers.Where(customer => customer == message.Value).Single();
+                Customers.Remove(customer);
+            }
+        });
     }
 
     //[RelayCommand]
