@@ -1,10 +1,12 @@
-﻿using HotelProject.Services;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
+using HotelProject.Services;
 
 namespace HotelProject.ViewModel;
 
-public partial class RoomsViewModel : BaseViewModel
+public partial class RoomsViewModel : BaseViewModel, IRecipient<RefreshAvailableRooms>
 {
-    public ObservableCollection<Room> Rooms { get; } = new();
+    public ObservableCollection<Room> Rooms { get; set; } = new();
     RoomService roomService;
     IConnectivity connectivity;
     public RoomsViewModel(RoomService roomService, IConnectivity connectivity)
@@ -13,6 +15,8 @@ public partial class RoomsViewModel : BaseViewModel
         this.roomService = roomService;
         this.connectivity = connectivity;
         Task.Run(async () => await GetRoomsAsync());
+
+        WeakReferenceMessenger.Default.Register<RefreshAvailableRooms>(this);
     }
 
     [ObservableProperty]
@@ -23,7 +27,6 @@ public partial class RoomsViewModel : BaseViewModel
     {
         if (IsBusy)
             return;
-
         try
         {
             if (connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -40,7 +43,12 @@ public partial class RoomsViewModel : BaseViewModel
                 Rooms.Clear();
                 
             foreach(var room in rooms)
-                Rooms.Add(room);
+            {
+                if(room.IsActive)
+                    Rooms.Add(room);
+            }
+
+            Console.WriteLine(Rooms);               
 
         }
         catch (Exception ex)
@@ -66,6 +74,21 @@ public partial class RoomsViewModel : BaseViewModel
         await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
         {
             {"Room", room }
+        });
+    }
+
+    public void Receive(RefreshAvailableRooms message)
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            if(message.Value.IsActive)
+            { 
+                Rooms.Add(message.Value);
+            }
+            if (!message.Value.IsActive)
+            {
+                Rooms.Remove(Rooms.Where(i => i.Id == message.Value.Id).Single());
+            }
         });
     }
 }

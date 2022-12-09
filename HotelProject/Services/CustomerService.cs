@@ -47,8 +47,7 @@ public class CustomerService
             response = await httpClient.PostAsync(uri, content);
             if (response.IsSuccessStatusCode)
             {
-                Debug.WriteLine(@"\tItem successfully saved.");
-                await Shell.Current.GoToAsync("../..");
+                Debug.WriteLine(@"\tItem successfully saved.");                
             }
 
         }
