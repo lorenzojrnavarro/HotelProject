@@ -57,4 +57,23 @@ public class CustomerService
             Debug.WriteLine(@"\tERROR {0}", ex.Message);
         }
     }
+
+    public async Task DeleteCustomer(string customerId)
+    {
+        Uri uri = new Uri(string.Format("https://localhost:7183/api/Customers/" + customerId, string.Empty));
+        // Online
+        try
+        {
+            HttpResponseMessage response = await httpClient.DeleteAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine(@"\tItem successfully deleted.");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(@"\tERROR {0}", ex.Message);
+        }
+    }
 }

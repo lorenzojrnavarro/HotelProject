@@ -1,27 +1,36 @@
-﻿namespace HotelProject.Model;
+﻿using System.Text.Json.Serialization;
+
+namespace HotelProject.Model;
 
 public class Customer
 {
-    public string id { get; set; }
-    public string name { get; set; }
-    public string gender { get; set; }
-    public int age { get; set; }
-
-    public int allowedRoom { get; set; }
-
-    public string identityProof { get; set; }
-    public string phone { get; set; }
-
-    public PaymentDetails paymentDetails { get; set; }
-
-    public Boolean isActive { get; set; }
+    [JsonPropertyName("id")]
+    public string Id { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+    [JsonPropertyName("gender")]
+    public string Gender { get; set; }
+    [JsonPropertyName("age")]
+    public int Age { get; set; }
+    [JsonPropertyName("allowedRoom")]
+    public int AllowedRoom { get; set; }
+    [JsonPropertyName("identityProof")]
+    public string IdentityProof { get; set; }
+    [JsonPropertyName("phone")]
+    public string Phone { get; set; }
+    [JsonPropertyName("paymentDetails")]
+    public PaymentDetails PaymentDetails { get; set; }
+    [JsonPropertyName("isActive")]
+    public Boolean IsActive { get; set; }
 
 }
 
 public class PaymentDetails
 {
-    public string paymentMethod { get; set; }
-    public string amount { get; set; }
+    [JsonPropertyName("paymentMethod")]
+    public string PaymentMethod { get; set; }
+    [JsonPropertyName("amount")]
+    public string Amount { get; set; }
 }
 
 
