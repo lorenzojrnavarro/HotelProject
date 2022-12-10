@@ -14,6 +14,7 @@
         RowSpacing="0">
         <RefreshView
             Grid.ColumnSpan="2"
+            x:Name="refreshView"
             Command="{Binding GetCustomersCommand}"
             IsRefreshing="{Binding IsRefreshing}">
             <ContentView>

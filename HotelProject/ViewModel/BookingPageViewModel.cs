@@ -57,7 +57,7 @@ public partial class BookingPageViewModel : BaseViewModel
             customer.PaymentDetails.Amount = (room.Price*nightsStayed).ToString(); 
             customer.IsActive= true;
 
-            await customerService.CreateReservation(customer);
+            await customerService.CreateCustomer(customer);
 
             room.IsActive = false;
             await roomService.SetAvailability(room);

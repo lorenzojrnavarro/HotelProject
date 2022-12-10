@@ -7,4 +7,9 @@ public partial class CustomerPage : ContentPage
 		InitializeComponent();
         BindingContext = viewModel;
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 }

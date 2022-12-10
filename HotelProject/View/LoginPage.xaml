@@ -26,7 +26,7 @@
             </Frame>
             <Frame Padding="0" HasShadow="True" BorderColor="Black" HorizontalOptions="FillAndExpand">
                 <!--Username Input-->
-                <Entry VerticalOptions="Center" Placeholder="Username" Keyboard="Email" x:Name="Email" Text="{Binding Email}"/>
+                <Entry VerticalOptions="Center" Placeholder="Username" Keyboard="Email" x:Name="EmployeeId" Text="{Binding Employee.EmployeeId}"/>
             </Frame>
         </StackLayout>
 
@@ -36,11 +36,11 @@
             </Frame>
             <Frame Padding="0" HasShadow="True" BorderColor="Black" HorizontalOptions="FillAndExpand">
                 <!--Password Input-->
-                <Entry VerticalOptions="Center" Placeholder="Password" IsPassword="True" Keyboard="Email" x:Name="Password" Text="{Binding Password}"/>
+                <Entry VerticalOptions="Center" Placeholder="Password" IsPassword="True" Keyboard="Email" x:Name="Password" Text="{Binding Employee.Password}"/>
             </Frame>
         </StackLayout>
 
-        <Button Text="Sign In" WidthRequest="100" CornerRadius="20" TextColor="White"  HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}" Command="{Binding OpenEmployeeLoginCommand}"/>
+        <Button Text="Sign In" WidthRequest="100" CornerRadius="20" TextColor="White"  HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}" Command="{Binding EmployeeLoginCommand}"/>
 
     </VerticalStackLayout>
 </ContentPage>

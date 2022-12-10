@@ -26,6 +26,7 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<RoomService>();
         builder.Services.AddSingleton<CustomerService>();
+        builder.Services.AddSingleton<EmployeeService>();
 
         builder.Services.AddSingleton<RoomsViewModel>();
         builder.Services.AddSingleton<UnavailableRoomsViewModel>();

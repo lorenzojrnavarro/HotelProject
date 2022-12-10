@@ -35,7 +35,7 @@ public class CustomerService
         return customerList;
     }
 
-    public async Task CreateReservation(Customer customer)
+    public async Task CreateCustomer(Customer customer)
     {
         Uri uri = new Uri(string.Format("https://localhost:7183/api/Customers", string.Empty));
         // Online

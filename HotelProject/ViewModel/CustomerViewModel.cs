@@ -6,16 +6,26 @@ namespace HotelProject.ViewModel;
 
 public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustomers>
 {
-    public ObservableCollection<Customer> Customers { get; } = new();
+    public ObservableCollection<Customer> Customers { get; set; } = new();
+    [ObservableProperty]
+    Employee currentEmployee = new();
+
     CustomerService customerService;
-    RoomService roomService;
     IConnectivity connectivity;
-    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity, RoomService roomService)
+    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity)
     {
-        Title = "Customer Finder";
+        Title = "Customer";
         this.customerService = customerService;
         this.connectivity = connectivity;
-        Task.Run(async () => await GetCustomersAsync());
+
+        WeakReferenceMessenger.Default.Register<EmployeeLoginState>(this, (sender, employeeMessage) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                currentEmployee = employeeMessage.Value;
+                Task.Run(async () => await GetCustomersAsync());
+            });
+        });        
 
         WeakReferenceMessenger.Default.Register<RemoveCustomerByRoomNumber>(this, (sender, message) =>
         {
