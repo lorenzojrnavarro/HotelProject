@@ -76,7 +76,8 @@ namespace HotelProject.ViewModel
                     employee = searchEmployee;
                     employee.IsActive = true;
                     await employeeService.PutEmployee(employee, true);
-                    WeakReferenceMessenger.Default.Send(new EmployeeLoginState(employee));
+                    App.employeeInfo= employee;
+                    await AppConstant.AddFlyoutMenusDetails();
                 }
             }
         }

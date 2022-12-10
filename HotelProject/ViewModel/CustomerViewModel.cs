@@ -18,14 +18,9 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
         this.customerService = customerService;
         this.connectivity = connectivity;
 
-        WeakReferenceMessenger.Default.Register<EmployeeLoginState>(this, (sender, employeeMessage) =>
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                currentEmployee = employeeMessage.Value;
-                Task.Run(async () => await GetCustomersAsync());
-            });
-        });        
+        
+        Task.Run(async () => await GetCustomersAsync());
+    
 
         WeakReferenceMessenger.Default.Register<RemoveCustomerByRoomNumber>(this, (sender, message) =>
         {

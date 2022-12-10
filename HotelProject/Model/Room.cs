@@ -12,7 +12,7 @@ public class Room
     public string Type { get; set; }
     [JsonPropertyName("roomDescription")]
     public string RoomDescription { get; set; }
-    [JsonPropertyName("image")]
+    [JsonPropertyName("roomImage")]
     public string Image { get; set; }
     [JsonPropertyName("roomNumber")]
     public int RoomNumber { get; set; }

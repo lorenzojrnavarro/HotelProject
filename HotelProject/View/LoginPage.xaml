@@ -5,7 +5,8 @@
              xmlns:model="clr-namespace:HotelProject.Model"
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"
              x:DataType="viewmodel:LoginPageViewModel"
-             Title="LoginPage">
+             xmlns:Helpers="clr-namespace:HotelProject.Helpers"
+             Title="Login Page">
     <VerticalStackLayout
         Spacing="25"
         Padding="20"

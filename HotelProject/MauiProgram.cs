@@ -21,31 +21,30 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
-        builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
-        builder.Services.AddSingleton<IMap>(Map.Default);
 
+        //Services
         builder.Services.AddSingleton<RoomService>();
         builder.Services.AddSingleton<CustomerService>();
         builder.Services.AddSingleton<EmployeeService>();
 
+        //ViewModels
         builder.Services.AddSingleton<RoomsViewModel>();
         builder.Services.AddSingleton<UnavailableRoomsViewModel>();
         builder.Services.AddSingleton<CustomerViewModel>();
+        builder.Services.AddTransient<RoomDetailsViewModel>();
+        builder.Services.AddTransient<BookingPageViewModel>();
+        builder.Services.AddTransient<LoginPageViewModel>();
+        builder.Services.AddTransient<EmployeePageViewModel>();
 
+        //Views
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<AvailableRoomPage>();
         builder.Services.AddSingleton<UnavailableRoomPage>();
         builder.Services.AddSingleton<CustomerPage>();
-
-
-        builder.Services.AddTransient<RoomDetailsViewModel>();
         builder.Services.AddTransient<DetailsPage>();
-
         builder.Services.AddTransient<BookingPage>();
-        builder.Services.AddTransient<BookingPageViewModel>();
-
         builder.Services.AddTransient<LoginPage>();
-        builder.Services.AddTransient<LoginPageViewModel>();
+        builder.Services.AddTransient<EmployeePage>();
 
         return builder.Build();
     }

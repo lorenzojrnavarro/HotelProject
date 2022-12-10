@@ -11,15 +11,13 @@ namespace HotelProject.ViewModel;
 [QueryProperty(nameof(Room), "Room")]
 public partial class RoomDetailsViewModel : BaseViewModel
 {
-    IMap map;
     IConnectivity connectivity;
     RoomService roomService;
 
     [ObservableProperty]
     Boolean isUnavailable;
-    public RoomDetailsViewModel(IMap map, RoomService roomService, IConnectivity connectivity)
+    public RoomDetailsViewModel(RoomService roomService, IConnectivity connectivity)
     {
-        this.map = map;
         this.roomService = roomService;
         this.connectivity = connectivity;
     }
