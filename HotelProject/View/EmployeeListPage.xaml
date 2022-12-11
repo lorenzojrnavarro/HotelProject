@@ -23,11 +23,12 @@
                         <DataTemplate x:DataType="model:Employee">
                             <Grid Padding="10">
                                 <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                                    <Grid Padding="0" ColumnDefinitions="*,2*">
+                                    <Grid Padding="10" ColumnDefinitions="30,*,2*">
                                         <VerticalStackLayout
                                             Grid.Column="1"
                                             VerticalOptions="Center"
-                                            Padding="10">
+                                            Padding="10"
+                                            HeightRequest="125">
                                             <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding EmployeeId, StringFormat='Room Number: {0}'}"/>
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding IsActive, StringFormat='Available: {0}'}"/>

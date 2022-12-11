@@ -22,8 +22,8 @@
         <Entry x:Name="Proof"
                Placeholder="Enter Method of Identification"
                Text="{Binding Customer.IdentityProof}"/>
-        <Entry x:Name="ProofMethod"
-               Placeholder="Enter Method of Identification"
+        <Entry x:Name="PaymentMethod"
+               Placeholder="Enter Method Payment"
                Text="{Binding PaymentMethod}"/>
         <Grid Padding="10" ColumnDefinitions="150, *">
             <Label  x:Name="Nights"
