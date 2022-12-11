@@ -6,17 +6,24 @@
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"    
              x:DataType="viewmodel:BookingViewModel"
              Title="{Binding Room.RoomNumber, StringFormat='Booking For Room {0}'}">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Spacing="25"
+        VerticalOptions="Center"
+        Margin="150,0">
         <Entry x:Name="Name"
+               VerticalOptions="Center"
                Placeholder="Enter Name"
                Text="{Binding Customer.Name}"/>
         <Entry x:Name="Gender"
+               VerticalOptions="Center"
                Placeholder="Enter Gender"
                Text="{Binding Customer.Gender}"/>
         <Entry x:Name="Age"
+               VerticalOptions="Center"
                Placeholder="Enter Age"
                Text="{Binding Customer.Age}"/>
         <Entry x:Name="Phone"
+               VerticalOptions="Center"
                Placeholder="Enter Phone Number"
                Text="{Binding Customer.Phone}"/>
         <Grid Padding="10" ColumnDefinitions="150, *">
@@ -24,6 +31,7 @@
                     Text="Staying 1 Night(s) "
                     VerticalOptions="Center"/>
             <Stepper x:Name="NightsStepper"
+                     VerticalOptions="Center"
                         Minimum="1"
                         Maximum="31"
                         Increment="1"

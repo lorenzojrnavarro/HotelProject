@@ -6,8 +6,64 @@
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"
              x:DataType="viewmodel:EmployeeViewModel"             
              Title="Employee Page">
-    <VerticalStackLayout>
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,*">
+            <BoxView
+                BackgroundColor="{StaticResource Primary}"
+                Grid.RowSpan="2"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"/>
+
+            <Border StrokeShape="RoundRectangle 80"
+                    Stroke="White"
+                    StrokeThickness="6"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    Margin="0,8,0,0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <Image Aspect="AspectFill"
+                        HeightRequest="160"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="160"/>
+                <!--Source="{Binding Employee.Image}"-->
+
+            </Border>
+
+            <Label Style="{StaticResource LargeLabel}" 
+                   Grid.Row="1"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   Text="{Binding Employee.Name}" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,8"/>
+
+            <VerticalStackLayout Grid.Row="2" Padding="20" Spacing="10">
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.EmployeeId, StringFormat='Username: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.Gender, StringFormat='Gender: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.Age, StringFormat='Age: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.Salary, StringFormat='Salary: ${0:0.00}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.Phone, StringFormat='Phone Number: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.Email, StringFormat='Email: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Employee.IsAdmin, StringFormat='Admin: {0}'}" />
+                <Button 
+            x:Name="SignOutButton"
+            Text="Sign Out"  
+            WidthRequest="100" 
+            CornerRadius="20" 
+            TextColor="White"  
+            HorizontalOptions="CenterAndExpand" 
+            BackgroundColor="{StaticResource Primary}"
+            Command="{Binding SignOutCommand}" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+    <!--<VerticalStackLayout>
+
         <HorizontalStackLayout>
+
             <Label Text="Name: " FontAttributes="Bold"/>
             <Label Text="{Binding Employee.Name}"/>
         </HorizontalStackLayout>
@@ -50,5 +106,5 @@
             HorizontalOptions="CenterAndExpand" 
             BackgroundColor="{StaticResource Primary}"
             Command="{Binding SignOutCommand}" />
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
 </ContentPage>

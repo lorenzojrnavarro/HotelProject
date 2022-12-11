@@ -12,8 +12,6 @@
         Padding="20"
         VerticalOptions="Center"
         Margin="250,0">
-        <!--Scuffed fix: Need to fix left and right margin-->
-        <!--BackgroundColor="Blue"-->
 
         <Image Source="hotel.png" HeightRequest="150" WidthRequest="150" />
         <VerticalStackLayout Spacing="5">
