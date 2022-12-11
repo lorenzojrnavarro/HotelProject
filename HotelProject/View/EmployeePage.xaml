@@ -14,23 +14,6 @@
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"/>
 
-            <Border StrokeShape="RoundRectangle 80"
-                    Stroke="White"
-                    StrokeThickness="6"
-                    HeightRequest="160"
-                    WidthRequest="160"
-                    Margin="0,8,0,0"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center">
-                <Image Aspect="AspectFill"
-                        HeightRequest="160"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="160"/>
-                <!--Source="{Binding Employee.Image}"-->
-
-            </Border>
-
             <Label Style="{StaticResource LargeLabel}" 
                    Grid.Row="1"
                    TextColor="White"

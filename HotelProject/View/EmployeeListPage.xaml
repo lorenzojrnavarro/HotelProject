@@ -30,7 +30,7 @@
                                             Padding="10"
                                             HeightRequest="125">
                                             <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
-                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding EmployeeId, StringFormat='Room Number: {0}'}"/>
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding EmployeeId, StringFormat='Employee ID: {0}'}"/>
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding IsActive, StringFormat='Available: {0}'}"/>
 
 
