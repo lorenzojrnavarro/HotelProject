@@ -57,6 +57,28 @@ public class CustomerService
         }
     }
 
+    public async Task PutCustomer(Customer customer)
+    {
+        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Customers?id=" + customer.Id), string.Empty));
+        // Online
+        try
+        {
+            string json = JsonSerializer.Serialize<Customer>(customer);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = null;
+            response = await httpClient.PutAsync(uri, content);
+            if (response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine(@"\tItem successfully saved.");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(@"\tERROR {0}", ex.Message);
+        }
+    }
+
     public async Task DeleteCustomer(string customerId)
     {
         Uri uri = new Uri(string.Format("https://localhost:7183/api/Customers/" + customerId, string.Empty));

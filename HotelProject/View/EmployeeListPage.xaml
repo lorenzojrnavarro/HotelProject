@@ -43,6 +43,12 @@
             </ContentView>
         </RefreshView>
 
+        <!--<Button
+            Margin="8"
+            Command="{Binding CreateEmployeeCommand}"
+            IsEnabled="{Binding IsNotBusy}"
+            Style="{StaticResource ButtonOutline}"
+            Text="Create Employee" />-->
         <ActivityIndicator
             Grid.RowSpan="2"
             Grid.ColumnSpan="2"

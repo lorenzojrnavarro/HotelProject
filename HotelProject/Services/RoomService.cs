@@ -48,6 +48,7 @@ public class RoomService
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"\tItem successfully saved.");
+                await Shell.Current.GoToAsync("../..");
             }
 
         }

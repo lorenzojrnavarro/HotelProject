@@ -82,8 +82,9 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
         if (customer != null)
         {
             customer.IsActive= false;
+            customer.AllowedRoom = 0;            
+            await customerService.PutCustomer(customer);
             WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
-            await customerService.DeleteCustomer(customer.Id);
         }
     }
 
@@ -91,15 +92,13 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
     {
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            if (message.Value.IsActive)
-            {
-                Customers.Add(message.Value);
-            }
             if (!message.Value.IsActive)
             {
                 Customer customer = Customers.Where(customer => customer == message.Value).Single();
                 Customers.Remove(customer);
+
             }
+            Customers.Add(message.Value);
         });
     }
 

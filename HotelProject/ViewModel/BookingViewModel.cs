@@ -20,6 +20,9 @@ public partial class BookingViewModel : BaseViewModel
     public Customer customer = new Customer();
 
     [ObservableProperty]
+    public string paymentMethod;
+
+    [ObservableProperty]
     public double nightsStayed;
 
     [ObservableProperty]
@@ -51,22 +54,20 @@ public partial class BookingViewModel : BaseViewModel
             IsBusy = true;
 
             customer.AllowedRoom = room.RoomNumber;
-            customer.IdentityProof = "proof";
             customer.PaymentDetails = new PaymentDetails();
-            customer.PaymentDetails.PaymentMethod = "Visa";
+            customer.PaymentDetails.PaymentMethod = paymentMethod;
             customer.PaymentDetails.Amount = (room.Price*nightsStayed).ToString(); 
             customer.IsActive= true;
 
             await customerService.CreateCustomer(customer);
 
-            room.IsActive = false;
-            await roomService.SetAvailability(room);
+            room.IsActive = false;            
 
             WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
-            
-            await Shell.Current.GoToAsync("../..");            
+
+            await roomService.SetAvailability(room);                       
         }
         catch (Exception ex)
         {

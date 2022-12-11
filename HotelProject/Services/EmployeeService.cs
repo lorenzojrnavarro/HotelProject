@@ -70,6 +70,7 @@ public class EmployeeService
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"\tItem successfully saved.");
+                await Shell.Current.GoToAsync("EmployeePage", true);
             }
 
         }

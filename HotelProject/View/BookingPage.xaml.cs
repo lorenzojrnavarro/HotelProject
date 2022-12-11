@@ -13,4 +13,10 @@ public partial class BookingPage : ContentPage
 		double value = e.NewValue;
         Nights.Text = "Staying " + e.NewValue.ToString() + " Night(s)";
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Age.Text = String.Empty;
+    }
 }

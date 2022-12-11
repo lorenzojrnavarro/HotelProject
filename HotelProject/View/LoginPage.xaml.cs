@@ -11,5 +11,7 @@ public partial class LoginPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        EmployeeId.Text = String.Empty;
+        Password.Text = String.Empty;
     }
 }

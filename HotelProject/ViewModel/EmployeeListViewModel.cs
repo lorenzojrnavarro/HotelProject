@@ -1,4 +1,6 @@
-﻿using HotelProject.Services;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using HotelProject.Messages;
+using HotelProject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HotelProject.ViewModel
 {
-    public partial class EmployeeListViewModel : BaseViewModel
+    public partial class EmployeeListViewModel : BaseViewModel, IRecipient<RefreshEmployees>
     {        
         public ObservableCollection<Employee> Employees { get; set; } = new();
 
@@ -19,6 +21,7 @@ namespace HotelProject.ViewModel
             this.employeeService = employeeService;
             this.connectivity = connectivity;
             Task.Run(async () => await GetEmployeesAsync());
+            WeakReferenceMessenger.Default.Register<RefreshEmployees>(this);
         }
 
         [ObservableProperty]
@@ -64,5 +67,20 @@ namespace HotelProject.ViewModel
             }
 
         }
+
+
+        public void Receive(RefreshEmployees message)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {                
+                Employees.Add(message.Value);                
+            });
+        }
+
+        //[RelayCommand]
+        //async Task CreateEmployee()
+        //{
+        //    await Shell.Current.GoToAsync("CreateEmployeePage", true);
+        //}
     }
 }
