@@ -78,8 +78,6 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
 
     public async void RemoveCustomer(Room message)
     {
-        Customers = new();
-        await Task.Run(async () => await GetCustomersAsync());
         Customer customer = Customers.Where(customer => customer.AllowedRoom == message.RoomNumber).Single();
         if (customer != null)
         {
