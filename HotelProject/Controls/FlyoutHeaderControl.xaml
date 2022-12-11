@@ -6,5 +6,5 @@
         <Label x:Name="lblUserName"  FontSize="28" FontAttributes="Bold" />
         <Label VerticalTextAlignment="Center" FontAttributes="Bold" x:Name="lblUserRole" FontSize="16" />
     </StackLayout>
-    <Label x:Name="lblUserEmail" FontSize="18" />
+    <Label x:Name="lblUserId" FontSize="18" />
 </StackLayout>
