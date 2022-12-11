@@ -6,7 +6,10 @@
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"    
              x:DataType="viewmodel:CreateEmployeeViewModel"
              Title="Add New Employee">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Spacing="25"
+        VerticalOptions="Center"
+        Margin="150,0">
         <Entry x:Name="Name"
                Placeholder="Enter Name"
                Text="{Binding Employee.Name}"/>
