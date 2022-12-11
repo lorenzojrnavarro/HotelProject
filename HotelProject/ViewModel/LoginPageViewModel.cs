@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using HotelProject.Messages;
 using HotelProject.Services;
+using HotelProject.View;
 
 namespace HotelProject.ViewModel
 {
@@ -69,19 +70,24 @@ namespace HotelProject.ViewModel
             Employee searchEmployee = null;
             if (employee.EmployeeId != null)
             {
+                await Task.Run(async () => await GetEmployeesAsync());
                 searchEmployee = new Employee();
                 searchEmployee = Employees.Find(e => e.EmployeeId == employee.EmployeeId);
             }
 
             if (searchEmployee != null)
             {
-                if (employee.Password == searchEmployee.Password && employee.EmployeeId == searchEmployee.EmployeeId)
+                if (employee.EmployeeId == searchEmployee.EmployeeId && employee.Password == searchEmployee.Password )
                 {
                     employee = searchEmployee;
                     employee.IsActive = true;
                     await employeeService.PutEmployee(employee, true);
                     App.employeeInfo= employee;
+                    //searchEmployee = null;
+                    employee = new();
                     await AppConstant.AddFlyoutMenusDetails();
+                    await Shell.Current.GoToAsync($"//{nameof(EmployeePage)}", true);
+
                 }
             }
         }

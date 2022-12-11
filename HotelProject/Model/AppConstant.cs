@@ -74,15 +74,7 @@ namespace HotelProject.Model
 
                 if (!AppShell.Current.Items.Contains(flyoutItem))
                 {                    
-                    AppShell.Current.Items.Add(flyoutItem);
-                    
-                    AppShell.Current.Dispatcher.Dispatch(async () =>
-                    {
-                        if (App.employeeInfo.IsActive)
-                        {
-                            await Shell.Current.GoToAsync($"//{nameof(EmployeePage)}");
-                        }
-                    });                    
+                    AppShell.Current.Items.Add(flyoutItem);      
                 }
 
             }
