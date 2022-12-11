@@ -35,11 +35,6 @@ namespace HotelProject.Model
                         },
                         new ShellContent
                         {
-                            Title = "Admin Profile",
-                            ContentTemplate = new DataTemplate(typeof(EmployeePage)),
-                        },
-                        new ShellContent
-                        {
                             Title = "Customers",
                             Route = nameof(CustomerPage),
                             ContentTemplate = new DataTemplate(typeof(CustomerPage)),
@@ -64,8 +59,16 @@ namespace HotelProject.Model
                     flyoutItem.Items.Add(
                         new ShellContent
                         {
+                            Route = "CreateEmployeePage",
                             Title = "Create Employee Page",
                             ContentTemplate = new DataTemplate(typeof(EmployeePage)),
+                        });
+                    flyoutItem.Items.Add(
+                        new ShellContent
+                        {
+                            Route = nameof(EmployeeListPage),
+                            Title = "Employee List",
+                            ContentTemplate = new DataTemplate(typeof(EmployeeListPage)),
                         });
                 }    
 
@@ -75,7 +78,10 @@ namespace HotelProject.Model
                     
                     AppShell.Current.Dispatcher.Dispatch(async () =>
                     {
-                        await Shell.Current.GoToAsync($"//{nameof(EmployeePage)}");
+                        if (App.employeeInfo.IsActive)
+                        {
+                            await Shell.Current.GoToAsync($"//{nameof(EmployeePage)}");
+                        }
                     });                    
                 }
 

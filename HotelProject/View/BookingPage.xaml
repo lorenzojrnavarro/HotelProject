@@ -4,7 +4,7 @@
              xmlns:model="clr-namespace:HotelProject.Model"
              x:Class="HotelProject.View.BookingPage"
              xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"    
-             x:DataType="viewmodel:BookingPageViewModel"
+             x:DataType="viewmodel:BookingViewModel"
              Title="{Binding Room.RoomNumber, StringFormat='Booking For Room {0}'}">
     <VerticalStackLayout>
         <Entry x:Name="Name"

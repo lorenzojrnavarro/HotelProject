@@ -1,19 +1,20 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-using HotelProject.Messages;
-using HotelProject.Services;
+﻿using HotelProject.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace HotelProject.ViewModel
 {
-    public partial class LoginPageViewModel : BaseViewModel
-    {
-        [ObservableProperty]
-        public Employee employee = new();
-        public List<Employee> Employees { get; } = new();
+    public partial class EmployeeListViewModel : BaseViewModel
+    {        
+        public ObservableCollection<Employee> Employees { get; set; } = new();
 
         EmployeeService employeeService;
         IConnectivity connectivity;
 
-        public LoginPageViewModel(EmployeeService employeeService, IConnectivity connectivity)
+        public EmployeeListViewModel(EmployeeService employeeService, IConnectivity connectivity)
         {
             this.employeeService = employeeService;
             this.connectivity = connectivity;
@@ -62,28 +63,6 @@ namespace HotelProject.ViewModel
                 IsRefreshing = false;
             }
 
-        }
-        [RelayCommand]
-        async Task EmployeeLogin()
-        {
-            Employee searchEmployee = null;
-            if (employee.EmployeeId != null)
-            {
-                searchEmployee = new Employee();
-                searchEmployee = Employees.Find(e => e.EmployeeId == employee.EmployeeId);
-            }
-
-            if (searchEmployee != null)
-            {
-                if (employee.Password == searchEmployee.Password && employee.EmployeeId == searchEmployee.EmployeeId)
-                {
-                    employee = searchEmployee;
-                    employee.IsActive = true;
-                    await employeeService.PutEmployee(employee, true);
-                    App.employeeInfo= employee;
-                    await AppConstant.AddFlyoutMenusDetails();
-                }
-            }
         }
     }
 }

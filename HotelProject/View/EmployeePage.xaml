@@ -2,11 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelProject.View.EmployeePage"
+             xmlns:model="clr-namespace:HotelProject.Model"
+             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"
+             x:DataType="viewmodel:EmployeeViewModel"             
              Title="Employee Page">
-    <VerticalStackLayout>            
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Name: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Name}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Username: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.EmployeeId}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Gender: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Gender}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Age: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Age}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Salary: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Salary, StringFormat='${0:0.00}'}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Phone: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Phone}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Email: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.Email}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Admin: " FontAttributes="Bold"/>
+            <Label Text="{Binding Employee.IsAdmin}"/>
+        </HorizontalStackLayout>
+
+
+        <Button 
+            x:Name="SignOutButton"
+            Text="Sign Out"  
+            WidthRequest="100" 
+            CornerRadius="20" 
+            TextColor="White"  
+            HorizontalOptions="CenterAndExpand" 
+            BackgroundColor="{StaticResource Primary}"
+            Command="{Binding SignOutCommand}" />
     </VerticalStackLayout>
 </ContentPage>

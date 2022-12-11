@@ -2,7 +2,7 @@ namespace HotelProject.View;
 
 public partial class BookingPage : ContentPage
 {
-	public BookingPage(BookingPageViewModel viewModel)
+	public BookingPage(BookingViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;

@@ -2,8 +2,8 @@
 <Shell  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         x:Class="HotelProject.AppShell"
-        xmlns:view="clr-namespace:HotelProject.View"
-        xmlns:app="clr-namespace:HotelProject"
+        xmlns:view="clr-namespace:HotelProject.View"       
+        xmlns:app="clr-namespace:HotelProject"        
         Shell.TabBarIsVisible="False">
         
 
@@ -25,26 +25,7 @@
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="ShellItem" ApplyToDerivedTypes="True" />
         </ResourceDictionary>
     </Shell.Resources>
-
-
-    <!--<ShellContent
-        Shell.NavBarIsVisible="true"
-        Title="Customers"
-        ContentTemplate="{DataTemplate view:CustomerPage}"
-        Route="CustomerPage"
-        />
-    <ShellContent
-        Shell.NavBarIsVisible="true"
-        Title="Available Rooms"
-        ContentTemplate="{DataTemplate view:AvailableRoomPage}"
-        Route="AvailableRoomPage"
-        />
-    <ShellContent
-        Shell.NavBarIsVisible="true"
-        Title="Unavailable Rooms"
-        ContentTemplate="{DataTemplate view:UnavailableRoomPage}"
-        Route="UnavailableRoomPage"
-        />-->
+    
     <ShellContent
         FlyoutItemIsVisible="False" 
         Shell.FlyoutBehavior="Disabled"

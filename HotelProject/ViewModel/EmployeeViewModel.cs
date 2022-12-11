@@ -1,29 +1,28 @@
-﻿using HotelProject.Services;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using HotelProject.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using HotelProject.Messages;
+using HotelProject.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace HotelProject.ViewModel
 {
-    public partial class AppShellViewModel : BaseViewModel
+    public partial class EmployeeViewModel : BaseViewModel
     {
         EmployeeService employeeService;
         IConnectivity connectivity;
+        [ObservableProperty]
+        Employee employee;
 
-        public AppShellViewModel(EmployeeService employeeService, IConnectivity connectivity)
+        public EmployeeViewModel(EmployeeService employeeService, IConnectivity connectivity)
         {
             this.employeeService = employeeService;
             this.connectivity = connectivity;
+            this.employee = App.employeeInfo;
         }
 
         [RelayCommand]
         async Task SignOut()
         {
-            EmployeeService employeeService = new EmployeeService();
             if (App.employeeInfo.IsActive)
             {
                 App.employeeInfo.IsActive = false;
@@ -33,3 +32,4 @@ namespace HotelProject.ViewModel
         }
     }
 }
+

@@ -32,9 +32,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<UnavailableRoomsViewModel>();
         builder.Services.AddSingleton<CustomerViewModel>();
         builder.Services.AddTransient<RoomDetailsViewModel>();
-        builder.Services.AddTransient<BookingPageViewModel>();
+        builder.Services.AddTransient<BookingViewModel>();
         builder.Services.AddTransient<LoginPageViewModel>();
-        builder.Services.AddTransient<EmployeePageViewModel>();
+        builder.Services.AddTransient<EmployeeListViewModel>();
+        builder.Services.AddTransient<EmployeeViewModel>();
 
         //Views
         builder.Services.AddSingleton<MainPage>();
@@ -45,6 +46,7 @@ public static class MauiProgram
         builder.Services.AddTransient<BookingPage>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<EmployeePage>();
+        builder.Services.AddTransient<EmployeeListPage>();
 
         return builder.Build();
     }

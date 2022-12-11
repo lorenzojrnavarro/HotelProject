@@ -10,7 +10,7 @@ using HotelProject.Messages;
 namespace HotelProject.ViewModel;
 
 [QueryProperty(nameof(Room), "Room")]
-public partial class BookingPageViewModel : BaseViewModel
+public partial class BookingViewModel : BaseViewModel
 {
     RoomService roomService;
     CustomerService customerService;
@@ -25,7 +25,7 @@ public partial class BookingPageViewModel : BaseViewModel
     [ObservableProperty]
     Room room;
 
-    public BookingPageViewModel(RoomService roomService, CustomerService customerService, IConnectivity connectivity)
+    public BookingViewModel(RoomService roomService, CustomerService customerService, IConnectivity connectivity)
     {
         this.roomService = roomService;
         this.customerService = customerService;
