@@ -26,6 +26,12 @@
                VerticalOptions="Center"
                Placeholder="Enter Phone Number"
                Text="{Binding Customer.Phone}"/>
+        <Entry x:Name="Proof"
+               Placeholder="Enter Method of Identification"
+               Text="{Binding Customer.IdentityProof}"/>
+        <Entry x:Name="PaymentMethod"
+               Placeholder="Enter Method Payment"
+               Text="{Binding PaymentMethod}"/>
         <Grid Padding="10" ColumnDefinitions="150, *">
             <Label  x:Name="Nights"
                     Text="Staying 1 Night(s) "

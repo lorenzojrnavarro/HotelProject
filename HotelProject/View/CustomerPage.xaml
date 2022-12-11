@@ -25,14 +25,9 @@
                         <DataTemplate x:DataType="model:Customer">
                             <Grid Padding="10">
                                 <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                                    <Grid Padding="0" ColumnDefinitions="125,*, 2*">
-                                        <Image
-                                            Aspect="AspectFill"
-                                            HeightRequest="125"
-                                            Source="{Binding IdentityProof}"
-                                            WidthRequest="125" />
+                                    <Grid Padding="0" ColumnDefinitions="*, 2*">
                                         <VerticalStackLayout
-                                            Grid.Column="1"
+                                            Grid.Column="0"
                                             VerticalOptions="Center"
                                             Padding="10">
                                             <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
@@ -40,7 +35,7 @@
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding IsActive, StringFormat='Checked In: {0}'}"/>
                                         </VerticalStackLayout>
                                         <VerticalStackLayout
-                                            Grid.Column="2"
+                                            Grid.Column="1"
                                             VerticalOptions="Center"
                                             Padding="10">
                                             <Label Style="{StaticResource LargeLabel}" Text="" />

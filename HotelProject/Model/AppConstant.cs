@@ -61,7 +61,7 @@ namespace HotelProject.Model
                         {
                             Route = "CreateEmployeePage",
                             Title = "Create Employee Page",
-                            ContentTemplate = new DataTemplate(typeof(EmployeePage)),
+                            ContentTemplate = new DataTemplate(typeof(CreateEmployeePage)),
                         });
                     flyoutItem.Items.Add(
                         new ShellContent
@@ -70,19 +70,11 @@ namespace HotelProject.Model
                             Title = "Employee List",
                             ContentTemplate = new DataTemplate(typeof(EmployeeListPage)),
                         });
-                }    
+                }
 
                 if (!AppShell.Current.Items.Contains(flyoutItem))
                 {                    
-                    AppShell.Current.Items.Add(flyoutItem);
-                    
-                    AppShell.Current.Dispatcher.Dispatch(async () =>
-                    {
-                        if (App.employeeInfo.IsActive)
-                        {
-                            await Shell.Current.GoToAsync($"//{nameof(EmployeePage)}");
-                        }
-                    });                    
+                    AppShell.Current.Items.Add(flyoutItem);      
                 }
 
             }

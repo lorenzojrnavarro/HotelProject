@@ -91,10 +91,6 @@
             <Label Text="Email: " FontAttributes="Bold"/>
             <Label Text="{Binding Employee.Email}"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Admin: " FontAttributes="Bold"/>
-            <Label Text="{Binding Employee.IsAdmin}"/>
-        </HorizontalStackLayout>
 
 
         <Button 

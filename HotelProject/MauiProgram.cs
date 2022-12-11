@@ -36,6 +36,7 @@ public static class MauiProgram
         builder.Services.AddTransient<LoginPageViewModel>();
         builder.Services.AddTransient<EmployeeListViewModel>();
         builder.Services.AddTransient<EmployeeViewModel>();
+        builder.Services.AddTransient<CreateEmployeeViewModel>();
 
         //Views
         builder.Services.AddSingleton<MainPage>();
@@ -47,6 +48,7 @@ public static class MauiProgram
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<EmployeePage>();
         builder.Services.AddTransient<EmployeeListPage>();
+        builder.Services.AddTransient<CreateEmployeePage>();
 
         return builder.Build();
     }

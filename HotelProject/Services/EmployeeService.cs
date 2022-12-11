@@ -59,7 +59,7 @@ public class EmployeeService
 
     public async Task PutEmployee(Employee employee, Boolean isAdmin)
     {
-        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Employees/" + employee.Id + "%2C%20" + isAdmin.ToString() + "?id=" + employee.Id + "&&IsAdmin" + isAdmin.ToString()), string.Empty));
+        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Employees/" + employee.Id + "%2C" + isAdmin.ToString() + "?id=" + employee.Id + "&&IsAdmin=" + isAdmin.ToString()), string.Empty));
         // Online
         try
         {
@@ -70,6 +70,7 @@ public class EmployeeService
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"\tItem successfully saved.");
+                await Shell.Current.GoToAsync("EmployeePage", true);
             }
 
         }
