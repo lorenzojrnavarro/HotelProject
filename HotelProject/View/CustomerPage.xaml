@@ -29,6 +29,7 @@
                                         <VerticalStackLayout
                                             Grid.Column="0"
                                             VerticalOptions="Center"
+                                            HeightRequest="125"
                                             Padding="10">
                                             <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding AllowedRoom, StringFormat='Room Number: {0}'}"/>
