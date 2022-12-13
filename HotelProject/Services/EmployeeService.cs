@@ -20,7 +20,7 @@ public class EmployeeService
             return employeeList;
 
         // Online
-        var response = await httpClient.GetAsync("https://localhost:7183/api/Employees");
+        var response = await httpClient.GetAsync("https://webapplication1-sj8.conveyor.cloud/api/Employees");
         if (response.IsSuccessStatusCode)
         {
             employeeList = await response.Content.ReadFromJsonAsync<List<Employee>>();
@@ -37,7 +37,7 @@ public class EmployeeService
 
     public async Task CreateEmployee(Employee employee, Boolean isAdmin)
     {
-        Uri uri = new Uri(string.Format("https://localhost:7183/api/Employees/" + isAdmin.ToString(), string.Empty));
+        Uri uri = new Uri(string.Format("https://webapplication1-sj8.conveyor.cloud/api/Employees/" + isAdmin.ToString(), string.Empty));
         // Online
         try
         {
@@ -59,7 +59,7 @@ public class EmployeeService
 
     public async Task PutEmployee(Employee employee, Boolean isAdmin)
     {
-        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Employees/" + employee.Id + "%2C" + isAdmin.ToString() + "?id=" + employee.Id + "&&IsAdmin=" + isAdmin.ToString()), string.Empty));
+        Uri uri = new Uri(string.Format(("https://webapplication1-sj8.conveyor.cloud/api/Employees/" + employee.Id + "%2C" + isAdmin.ToString() + "?id=" + employee.Id + "&&IsAdmin=" + isAdmin.ToString()), string.Empty));
         // Online
         try
         {
@@ -82,7 +82,7 @@ public class EmployeeService
 
     public async Task DeleteEmployee(string employeeId, Boolean isAdmin)
     {
-        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Employees/" + employeeId + "%2C%20" + isAdmin.ToString() + "?id=" + employeeId + "&&IsAdmin" + isAdmin.ToString()), string.Empty));
+        Uri uri = new Uri(string.Format(("https://webapplication1-sj8.conveyor.cloud/api/Employees/" + employeeId + "%2C%20" + isAdmin.ToString() + "?id=" + employeeId + "&&IsAdmin" + isAdmin.ToString()), string.Empty));
         // Online
         try
         {

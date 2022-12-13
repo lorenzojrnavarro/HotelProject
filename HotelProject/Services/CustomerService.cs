@@ -16,11 +16,11 @@ public class CustomerService
     List<Customer> customerList;
     public async Task<List<Customer>> GetCustomers()
     {
-        if (customerList?.Count > 0)
-            return customerList;
+        //if (customerList?.Count > 0)
+        //    return customerList;
 
         // Online
-        var response = await httpClient.GetAsync("https://localhost:7183/api/Customers");
+        var response = await httpClient.GetAsync("https://webapplication1-sj8.conveyor.cloud/api/Customers");
         if (response.IsSuccessStatusCode)
         {
             customerList = await response.Content.ReadFromJsonAsync<List<Customer>>();
@@ -37,7 +37,7 @@ public class CustomerService
 
     public async Task CreateCustomer(Customer customer)
     {
-        Uri uri = new Uri(string.Format("https://localhost:7183/api/Customers", string.Empty));
+        Uri uri = new Uri(string.Format("https://webapplication1-sj8.conveyor.cloud/api/Customers", string.Empty));
         // Online
         try
         {
@@ -59,7 +59,7 @@ public class CustomerService
 
     public async Task PutCustomer(Customer customer)
     {
-        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Customers?id=" + customer.Id), string.Empty));
+        Uri uri = new Uri(string.Format(("https://webapplication1-sj8.conveyor.cloud/api/Customers/" + customer.Id), string.Empty));
         // Online
         try
         {
@@ -81,7 +81,7 @@ public class CustomerService
 
     public async Task DeleteCustomer(string customerId)
     {
-        Uri uri = new Uri(string.Format("https://localhost:7183/api/Customers/" + customerId, string.Empty));
+        Uri uri = new Uri(string.Format("https://webapplication1-sj8.conveyor.cloud/api/Customers/" + customerId, string.Empty));
         // Online
         try
         {
