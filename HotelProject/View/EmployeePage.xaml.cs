@@ -1,13 +1,12 @@
 namespace HotelProject.View;
 
-public partial class CustomerPage : ContentPage
+public partial class EmployeePage : ContentPage
 {
-	public CustomerPage(CustomerViewModel viewModel)
+	public EmployeePage(EmployeeViewModel viewModel)
 	{
 		InitializeComponent();
-        BindingContext = viewModel;
-    }
-
+		BindingContext = viewModel;
+	}
     protected override void OnAppearing()
     {
         base.OnAppearing();

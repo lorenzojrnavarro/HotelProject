@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:HotelProject.Model"
+             x:Class="HotelProject.View.CreateEmployeePage"
+             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"    
+             x:DataType="viewmodel:CreateEmployeeViewModel"
+             Title="Add New Employee">
+    <VerticalStackLayout
+        Spacing="25"
+        VerticalOptions="Center"
+        Margin="150,0">
+        <Entry x:Name="Name"
+               Placeholder="Enter Name"
+               Text="{Binding Employee.Name}"/>
+        <Entry x:Name="EmpEmail"
+               Placeholder="Enter Employee Email"
+               Text="{Binding Employee.Email}"/>
+        <Entry x:Name="EmployeeId"
+               Placeholder="Enter Employee Username"
+               Text="{Binding Employee.EmployeeId}"/>
+        <Entry x:Name="EmployeePassword"
+               Placeholder="Enter Employee Password"
+               Text="{Binding Employee.Password}"
+               IsPassword="True"/>
+        <Entry x:Name="Gender"
+               Placeholder="Enter Gender"
+               Text="{Binding Employee.Gender}"/>
+        <Entry x:Name="Age"
+               Placeholder="Enter Age"
+               Text="{Binding Employee.Age}"/>
+        <Entry x:Name="Salary"
+               Placeholder="Enter Employee Salary"
+               Text="{Binding Employee.Salary}"/>
+        <Entry x:Name="Phone"
+               Placeholder="Enter Phone Number"
+               Text="{Binding Employee.Phone}"/>
+        <Entry x:Name="Address"
+               Placeholder="Enter Residing City"
+               Text="{Binding Employee.Address}"/>
+
+        <Button 
+            x:Name="CreateEmployeeButton"
+            Command="{Binding CreateEmployeeCommand}"
+            Text="Create" FontSize="18" 
+            BackgroundColor="{StaticResource Primary}"
+            TextColor="White"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

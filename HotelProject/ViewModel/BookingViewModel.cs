@@ -10,7 +10,7 @@ using HotelProject.Messages;
 namespace HotelProject.ViewModel;
 
 [QueryProperty(nameof(Room), "Room")]
-public partial class BookingPageViewModel : BaseViewModel
+public partial class BookingViewModel : BaseViewModel
 {
     RoomService roomService;
     CustomerService customerService;
@@ -20,12 +20,15 @@ public partial class BookingPageViewModel : BaseViewModel
     public Customer customer = new Customer();
 
     [ObservableProperty]
+    public string paymentMethod;
+
+    [ObservableProperty]
     public double nightsStayed;
 
     [ObservableProperty]
     Room room;
 
-    public BookingPageViewModel(RoomService roomService, CustomerService customerService, IConnectivity connectivity)
+    public BookingViewModel(RoomService roomService, CustomerService customerService, IConnectivity connectivity)
     {
         this.roomService = roomService;
         this.customerService = customerService;
@@ -51,22 +54,20 @@ public partial class BookingPageViewModel : BaseViewModel
             IsBusy = true;
 
             customer.AllowedRoom = room.RoomNumber;
-            customer.IdentityProof = "proof";
             customer.PaymentDetails = new PaymentDetails();
-            customer.PaymentDetails.PaymentMethod = "Visa";
+            customer.PaymentDetails.PaymentMethod = paymentMethod;
             customer.PaymentDetails.Amount = (room.Price*nightsStayed).ToString(); 
             customer.IsActive= true;
 
-            await customerService.CreateReservation(customer);
+            await customerService.CreateCustomer(customer);
 
-            room.IsActive = false;
-            await roomService.SetAvailability(room);
+            room.IsActive = false;            
 
             WeakReferenceMessenger.Default.Send(new RefreshAvailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshUnavailableRooms(room));
             WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
-            
-            await Shell.Current.GoToAsync("../..");            
+
+            await roomService.SetAvailability(room);                       
         }
         catch (Exception ex)
         {

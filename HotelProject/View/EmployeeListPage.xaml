@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelProject.View.EmployeeListPage"
+             xmlns:model="clr-namespace:HotelProject.Model"
+             xmlns:viewmodel="clr-namespace:HotelProject.ViewModel"
+             x:DataType="viewmodel:EmployeeListViewModel"
+             Title="EmployeeListPage">
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <RefreshView
+            Grid.ColumnSpan="2"
+            Command="{Binding GetEmployeesCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <ContentView>
+                <CollectionView
+                    ItemsSource="{Binding Employees}"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Employee">
+                            <Grid Padding="10">
+                                <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                                    <Grid Padding="10" ColumnDefinitions="30,*,2*">
+                                        <VerticalStackLayout
+                                            Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            Padding="10"
+                                            HeightRequest="125">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding EmployeeId, StringFormat='Employee ID: {0}'}"/>
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding IsActive, StringFormat='Available: {0}'}"/>
+
+
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ContentView>
+        </RefreshView>
+
+        <!--<Button
+            Margin="8"
+            Command="{Binding CreateEmployeeCommand}"
+            IsEnabled="{Binding IsNotBusy}"
+            Style="{StaticResource ButtonOutline}"
+            Text="Create Employee" />-->
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource Primary}"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

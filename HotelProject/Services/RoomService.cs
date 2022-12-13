@@ -20,24 +20,18 @@ public class RoomService
             return roomList;
 
         // Online
-        var response = await httpClient.GetAsync("https://localhost:7183/api/Rooms");
+        var response = await httpClient.GetAsync("https://webapplication1-sj8.conveyor.cloud/api/Rooms");
         if (response.IsSuccessStatusCode)
         {
             roomList = await response.Content.ReadFromJsonAsync<List<Room>>();
         }
-
-        // Offline
-        //using var stream = await FileSystem.OpenAppPackageFileAsync("roomdata.json");
-        //using var reader = new StreamReader(stream);
-        //var contents = await reader.ReadToEndAsync();
-        //roomList = JsonSerializer.Deserialize<List<Room>>(contents);
 
         return roomList;
     }
 
     public async Task SetAvailability(Room room)
     {
-        Uri uri = new Uri(string.Format(("https://localhost:7183/api/Rooms?id=" + room.Id), string.Empty));
+        Uri uri = new Uri(string.Format(("https://webapplication1-sj8.conveyor.cloud/api/Rooms?id=" + room.Id), string.Empty));
         // Online
         try
         {
@@ -48,6 +42,7 @@ public class RoomService
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"\tItem successfully saved.");
+                await Shell.Current.GoToAsync("../..");
             }
 
         }

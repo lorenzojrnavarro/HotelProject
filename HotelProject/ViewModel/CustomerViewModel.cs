@@ -6,16 +6,21 @@ namespace HotelProject.ViewModel;
 
 public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustomers>
 {
-    public ObservableCollection<Customer> Customers { get; } = new();
+    public ObservableCollection<Customer> Customers { get; set; } = new();
+    [ObservableProperty]
+    Employee currentEmployee = new();
+
     CustomerService customerService;
-    RoomService roomService;
     IConnectivity connectivity;
-    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity, RoomService roomService)
+    public CustomerViewModel(CustomerService customerService, IConnectivity connectivity)
     {
-        Title = "Customer Finder";
+        Title = "Customer";
         this.customerService = customerService;
         this.connectivity = connectivity;
+
+        
         Task.Run(async () => await GetCustomersAsync());
+    
 
         WeakReferenceMessenger.Default.Register<RemoveCustomerByRoomNumber>(this, (sender, message) =>
         {
@@ -77,8 +82,9 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
         if (customer != null)
         {
             customer.IsActive= false;
+            customer.AllowedRoom = 0;            
+            await customerService.PutCustomer(customer);
             WeakReferenceMessenger.Default.Send(new RefreshCustomers(customer));
-            await customerService.DeleteCustomer(customer.Id);
         }
     }
 
@@ -86,15 +92,13 @@ public partial class CustomerViewModel : BaseViewModel, IRecipient<RefreshCustom
     {
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            if (message.Value.IsActive)
-            {
-                Customers.Add(message.Value);
-            }
             if (!message.Value.IsActive)
             {
                 Customer customer = Customers.Where(customer => customer == message.Value).Single();
                 Customers.Remove(customer);
+
             }
+            Customers.Add(message.Value);
         });
     }
 
